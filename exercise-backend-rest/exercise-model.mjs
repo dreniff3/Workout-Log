@@ -60,3 +60,9 @@ const replaceExercise = async (_id, name, reps, weight, unit, date) => {
     });
     return result.modifiedCount;
 }
+
+// DELETE model based on ID  *****************************************
+const deleteById = async (_id) => {
+    const result = await Exercise.deleteOne({_id: _id});
+    return result.deletedCount;
+};
