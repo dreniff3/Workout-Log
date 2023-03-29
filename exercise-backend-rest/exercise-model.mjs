@@ -20,3 +20,6 @@ const exerciseSchema = mongoose.Schema({
      	unit: { type: String, required: true },
     	date: {type: Date, required: true }
 });
+
+// Compile the model from the schema.
+const Exercise = mongoose.model("Exercise", exerciseSchema);
