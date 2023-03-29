@@ -8,7 +8,7 @@ export const EditExercisePage = ({ exercise }) => {
     const [reps, setReps] = useState(exercise.reps);
     const [weight, setWeight] = useState(exercise.weight);
     const [unit, setUnit] = useState(exercise.unit);
-    const [date, setDate] = useState(exercise.date.substring(0, 10));
+    const [date, setDate] = useState(exercise.date);
 
     const history = useHistory();
 
