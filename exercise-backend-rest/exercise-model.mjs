@@ -1,6 +1,8 @@
+// Import dependencies
 import mongoose from 'mongoose';
 import 'dotenv/config';
 
+// Connect based on the .env file parameters
 mongoose.connect(
     process.env.MONGODB_CONNECT_STRING,
     { useNewUrlParser: true }
@@ -8,6 +10,7 @@ mongoose.connect(
 
 const db = mongoose.connection;
 
+// Confirm that the database has connected and print a message in the console
 db.once("open", () => {
     console.log("Successfully connected to MongoDB using Mongoose!");
 });
@@ -24,7 +27,7 @@ const exerciseSchema = mongoose.Schema({
 // Compile the model from the schema.
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
-// CREATE model *****************************************
+// CREATE model ********************************************
 const createExercise = async (name, reps, weight, unit, date) => {
     const exercise = new Exercise({ 
         name: name, 
@@ -49,7 +52,7 @@ const findExerciseById = async (_id) => {
     return query.exec();
 }
 
-// REPLACE model *****************************************************
+// REPLACE model *******************************************
 const replaceExercise = async (_id, name, reps, weight, unit, date) => {
     const result = await Exercise.replaceOne({_id: _id }, {
         name: name,
@@ -61,7 +64,7 @@ const replaceExercise = async (_id, name, reps, weight, unit, date) => {
     return result.modifiedCount;
 }
 
-// DELETE model based on ID  *****************************************
+// DELETE model based on ID  *******************************
 const deleteById = async (_id) => {
     const result = await Exercise.deleteOne({_id: _id});
     return result.deletedCount;
