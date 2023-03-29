@@ -35,3 +35,16 @@ const createExercise = async (name, reps, weight, unit, date) => {
     });
     return exercise.save();
 }
+
+// RETRIEVE models *****************************************
+// Retrieve based on a filter and return a promise.
+const findExercises = async (filter) => {
+    const query = Exercise.find(filter);
+    return query.exec();
+}
+
+// Retrieve based on the ID and return a promise.
+const findExerciseById = async (_id) => {
+    const query = Exercise.findById(_id);
+    return query.exec();
+}
