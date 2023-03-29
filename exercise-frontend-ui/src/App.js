@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 import AddExercisePage from './pages/AddExercisePage';
 import EditExercisePage from './pages/EditExercisePage';
 
+// Import Components, styles, media
+import Navigation from './components/Nav';
 import './App.css';
 
 // Define the function that renders the content in routes using State
@@ -25,7 +27,9 @@ function App() {
             <h1><span id="header-1">Workout</span> <GiLog id="logo" /> <span id="header-2">Log</span></h1>
             <p>A place to record your exercises.</p>
           </div>
-
+          <div id="nav">
+            <Navigation />
+          </div>
         </header>
 
         <main>
