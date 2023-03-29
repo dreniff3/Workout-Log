@@ -43,6 +43,33 @@ app.get('/exercises/:_id', (req, res) => {
 
 });
 
+// FILTER through the object using If Else syntax *************
+function exerciseFilter(req) {
+    let filter = {};
+    if (req.query._id !== undefined) {
+        filter._id = req.query._id;
+    } if (req.query.name !== undefined) {
+         filter.name = req.query.name;
+    } if (req.query.date !== undefined) {
+         filter.date = req.query.date;
+    } 
+    return filter;
+}
+
+// GET exercises 
+app.get('/exercises', (req, res) => {
+    const filter = exerciseFilter(req);
+    exercises.findExercises(filter, '', 0)
+        .then(exercises => {
+            res.status(200).send(exercises);
+        })
+        .catch(error => {
+            console.error(error);
+            res.send({ Error: 'Request to retrieve documents failed' });
+        });
+
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
