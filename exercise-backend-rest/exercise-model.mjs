@@ -48,3 +48,15 @@ const findExerciseById = async (_id) => {
     const query = Exercise.findById(_id);
     return query.exec();
 }
+
+// REPLACE model *****************************************************
+const replaceExercise = async (_id, name, reps, weight, unit, date) => {
+    const result = await Exercise.replaceOne({_id: _id }, {
+        name: name,
+        reps: reps,
+        weight: weight,
+        unit: unit,
+        date: date
+    });
+    return result.modifiedCount;
+}
