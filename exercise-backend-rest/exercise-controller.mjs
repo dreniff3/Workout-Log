@@ -25,6 +25,24 @@ app.post ('/exercises', (req,res) => {
         });
 });
 
+// RETRIEVE controller ****************************************
+// GET exercises by ID
+app.get('/exercises/:_id', (req, res) => {
+    const exerciseId = req.params._id;
+    exercises.findExerciseById(exerciseId)
+        .then(exercise => { 
+            if (exercise !== null) {
+                res.status(200).json(exercise);
+            } else {
+                res.status(404).json({ Error: 'Document not found' });
+            }         
+         })
+        .catch(error => {
+            res.status(400).json({ Error: 'Request to retrieve document failed' });
+        });
+
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
