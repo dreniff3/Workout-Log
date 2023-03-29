@@ -27,7 +27,7 @@ function HomePage({ setExercise }) {
     // DELETE an exercise
     const onDeleteExercise = async _id => {
         const response = await fetch(`/exercises/${_id}`, { method: 'DELETE' });
-        if (response.status == 204) {
+        if (response.status === 204) {
             // re-render exercises after Delete
             const getResponse = await fetch('/exercises');
             const exercises = await getResponse.json();
