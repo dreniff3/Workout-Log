@@ -23,3 +23,15 @@ const exerciseSchema = mongoose.Schema({
 
 // Compile the model from the schema.
 const Exercise = mongoose.model("Exercise", exerciseSchema);
+
+// CREATE model *****************************************
+const createExercise = async (name, reps, weight, unit, date) => {
+    const exercise = new Exercise({ 
+        name: name, 
+        reps: reps, 
+        weight: weight,
+        unit: unit,
+        date: date 
+    });
+    return exercise.save();
+}
