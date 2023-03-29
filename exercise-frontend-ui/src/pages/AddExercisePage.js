@@ -89,3 +89,5 @@ export const AddExercisePage = () => {
         </>
     );
 }
+
+export default AddExercisePage;

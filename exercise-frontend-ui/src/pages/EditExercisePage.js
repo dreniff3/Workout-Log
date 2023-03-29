@@ -92,3 +92,5 @@ export const EditExercisePage = ({ exercise }) => {
         </>
     );
 }
+
+export default EditExercisePage;
