@@ -12,3 +12,11 @@ db.once("open", () => {
     console.log("Successfully connected to MongoDB using Mongoose!");
 });
 
+// SCHEMA: Define the collection's schema.
+const exerciseSchema = mongoose.Schema({
+	name: { type: String, required: true },
+	reps: { type: Number, min: 1, required: true },
+	weight: { type: Number,  min: 1, required: true },
+     	unit: { type: String, required: true },
+    	date: {type: Date, required: true }
+});
