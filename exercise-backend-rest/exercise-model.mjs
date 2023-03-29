@@ -69,3 +69,7 @@ const deleteById = async (_id) => {
     const result = await Exercise.deleteOne({_id: _id});
     return result.deletedCount;
 };
+
+
+// Export our variables for use in the controller file.
+export { createExercise, findExercises, findExerciseById, replaceExercise, deleteById }
