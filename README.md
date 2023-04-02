@@ -8,7 +8,7 @@ A Single Page Application (SPA) that tracks exercises completed by the user by u
 
 #### 1. HomePage:
 <ul>
-  <li>When this page is first rendered, it displays all the exercises currently stored in our MongoDB movie collection. This is done by calling the REST API endpoint to get all the movies.
+  <li>When this page is first rendered, it displays all the exercises currently stored in our MongoDB exercise collection. This is done by calling the REST API endpoint to get all the exercises.
 </li>
   <li>Each exercise is displayed with icons to delete or edit the exercise.</li>
   <li>Clicking on the icon for deleting the exercise deletes the exercise from the database. This is done by calling a REST API endpoint to delete the exercise.
